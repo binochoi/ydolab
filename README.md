@@ -35,12 +35,19 @@ Agents SDK 등 다른 베이스를 상속할 수도 있다. 그래서 `YSyncRoom
 pnpm add github:binochoi/ydolab#v0.0.1 yjs y-protocols
 ```
 
-GitHub 에서 받으면 설치할 때 `prepare` 스크립트가 `dist` 를 빌드한다. pnpm 은 허락한 패키지만 빌드하므로
-`pnpm-workspace.yaml` 에 다음을 넣어야 한다.
+GitHub 에서 받으면 설치할 때 `prepare` 스크립트가 `dist` 를 빌드한다. pnpm 은 허락한 패키지만 빌드하므로 먼저 허락해 둔다.
+
+pnpm 10 은 `package.json` 에 적는다.
+
+```json
+{ "pnpm": { "onlyBuiltDependencies": ["ydolab"] } }
+```
+
+pnpm 12 는 `pnpm-workspace.yaml` 에 받을 커밋까지 적는다.
 
 ```yaml
-onlyBuiltDependencies:
-  - ydolab
+allowBuilds:
+  "ydolab@https://codeload.github.com/binochoi/ydolab/tar.gz/dcd028dc038a5e7149437aaa0c4cbe452f8de2f7": true
 ```
 
 ## 사용법
