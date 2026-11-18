@@ -1,0 +1,51 @@
+{
+  "name": "ydolab",
+  "version": "0.0.1",
+  "description": "Y.js 문서를 Cloudflare Durable Object 위에서 동기화하는 프레임워크·비즈니스로직 무관 라이브러리 (server: DO 위임 헬퍼, client: 슬림 WS provider)",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binochoi/ydolab.git"
+  },
+  "keywords": [
+    "yjs",
+    "crdt",
+    "durable-objects",
+    "cloudflare-workers",
+    "collaborative-editing",
+    "websocket"
+  ],
+  "exports": {
+    "./server": {
+      "types": "./dist/server.d.mts",
+      "import": "./dist/server.mjs"
+    },
+    "./client": {
+      "types": "./dist/client.d.mts",
+      "import": "./dist/client.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "obuild",
+    "build": "obuild",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "yjs": "^13.6.0",
+    "y-protocols": "^1.0.6"
+  },
+  "dependencies": {
+    "lib0": "^0.2.99"
+  },
+  "devDependencies": {
+    "obuild": "^0.4.38",
+    "typescript": "^7.0.2",
+    "yjs": "13.6.31",
+    "y-protocols": "1.0.7"
+  },
+  "packageManager": "pnpm@10.33.2"
+}
